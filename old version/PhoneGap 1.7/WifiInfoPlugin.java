@@ -1,23 +1,23 @@
-package org.apache.cordova.plugin;
+package com.phonegap.plugin;
 
-
-import org.apache.cordova.api.CallbackContext;
-import org.apache.cordova.api.CordovaPlugin;
+import org.apache.cordova.api.PluginResult;
+import org.apache.cordova.api.PluginResult.Status;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.phonegap.api.Plugin;
 
 import android.content.Context;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 
-public class WifiInfoPlugin extends CordovaPlugin { 
+public class WifiInfoPlugin extends Plugin { 
 
 	@Override 
-	public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
+	public PluginResult execute(String action, JSONArray data, String callback) {
 		
-		Context context = cordova.getActivity().getApplicationContext();
+		Context context = ctx.getApplicationContext();
 		WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
 		WifiInfo wifiInfo = wifiManager.getConnectionInfo();
 		
@@ -33,10 +33,15 @@ public class WifiInfoPlugin extends CordovaPlugin {
 			obj.put("LinkSpeed", wifiInfo.getLinkSpeed());
 			
 		} catch (JSONException e) {
+			
 			e.printStackTrace();
-			callbackContext.error("JSON Exception");
+			return new PluginResult(Status.JSON_EXCEPTION);
 		}
-		callbackContext.success(obj);
-		return true;
+		
+		return new PluginResult(Status.OK, obj);
+		
+		
+		
 	}
+
 }

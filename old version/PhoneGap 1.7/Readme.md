@@ -3,14 +3,14 @@ PhoneGap WifiInfoPlugin
 
 * Author: HondaDai
 * License - The MIT License
-* Test on cordova 2.2.0 (PhoneGap 2.2.0)
+* Test on PhoneGap 1.7.0 (cordova 1.7)
 
 
 Install Step (On Eclipse)
 --------------------------
 
 1. Import File System to folder **src**, select **WifiInfoPlugin.java**
-2. Edit **res\xml\config.xml**, add `<plugin name="WifiInfoPlugin" value="org.apache.cordova.plugin.WifiInfoPlugin"/>` into `<plugins> </plugins>`
+2. Edit **res\xml\plugins.xml**, add `<plugin name="WifiInfoPlugin" value="com.phonegap.plugin.WifiInfoPlugin"/>` into `<plugins> </plugins>`
 3. add `<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>` into **AndroidManifest.xml**
 4. Import **WifiInfoPlugin.js** into .html
 
