@@ -17,14 +17,14 @@ API
 -----
 
 ### Example 1
-	window.plugins.WifiInfo.get(function(wifi){ console.log(wifi); });
+	window.plugins.WifiInfo.get(function(wifis){ console.log(wifis); });
 
 ### Example 2
-	window.plugins.WifiInfo.get(function(wifi){ 
-		alert(wifi.SSID); 
+	window.plugins.WifiInfo.get(function(wifis){ 
+		alert(wifis.SSID); 
 	});
 	
-### Output Format
+### Output 
     object(6): {
        activity:  object(8): {
           MacAddress:  string(17): "4c:aa:16:ad:c8:xx"
