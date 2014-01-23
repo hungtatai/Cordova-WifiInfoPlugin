@@ -1,7 +1,6 @@
 PhoneGap WifiInfoPlugin
 ==============
 
-* Author: HondaDai
 * License - The MIT License
 * Test on cordova 2.6.0 (PhoneGap 2.6.0)
 
