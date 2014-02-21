@@ -35,9 +35,10 @@ public class WifiInfoPlugin extends CordovaPlugin {
 			activity.put("RSSI", wifiInfo.getRssi());
 			activity.put("LinkSpeed", wifiInfo.getLinkSpeed());
 			obj.put("activity", activity); 
-			
+		
+		if(wifiManager.getScanResults() != null){	
 			JSONArray available = new JSONArray();
-	        for (ScanResult scanResult : wifiManager.getScanResults()) {
+	       	 for (ScanResult scanResult : wifiManager.getScanResults()) {
 	        	JSONObject ap = new JSONObject();
 	        	ap.put("BSSID", scanResult.BSSID);
 	        	ap.put("SSID", scanResult.SSID);
@@ -46,9 +47,9 @@ public class WifiInfoPlugin extends CordovaPlugin {
 	        	//netwrok.put("timestamp", String.valueOf(scanResult.timestamp));
 	        	ap.put("capabilities", scanResult.capabilities);
 	        	available.put(ap);
-	        }
-	        obj.put("available", available); 
-	        
+	       	 }
+	                obj.put("available", available); 
+		}
 			
 		} catch (JSONException e) {
 			e.printStackTrace();
