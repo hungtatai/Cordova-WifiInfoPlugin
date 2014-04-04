@@ -1,0 +1,5 @@
+src/android/bin
+src/android/src
+src/android/.gitignore
+src/android/.project
+src/android/.classpath
