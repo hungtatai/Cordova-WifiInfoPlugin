@@ -8,7 +8,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <name>Wifi Network Information</name>
     <description>Cordova Wifi Network Information Plugin</description>
     <license>MIT</license>
-    <keywords>cordova,network,information, wifi</keywords>
+    <keywords>cordova,network,information,wifi,manrueda</keywords>
     <repo>https://github.com/ManRueda/org.apache.cordova.wifiinfo</repo>
 
     <js-module src="www/cordovaWifiInfo.js" name="wifi">
