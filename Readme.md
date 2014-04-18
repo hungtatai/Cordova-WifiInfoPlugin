@@ -15,12 +15,15 @@ API
 -----
 
 ### Example 1
-	window.wifi.lan;				//Connected WiFi info
-	window.wifi.networks;		//Array of the visible WiFi networks
+```javascript
+	window.wifi.lan;			 //Connected WiFi info
+	window.wifi.networks;	    //Array of the visible WiFi networks
+```
 
 ### Example 2
+```javascript
 	window.wifi.refresh();
-	
+```
 
 Changelog
 -----
