@@ -16,13 +16,13 @@ API
 
 ### Example 1
 ```javascript
-	window.wifi.lan;			 //Connected WiFi info
-	window.wifi.networks;	    //Array of the visible WiFi networks
+window.wifi.lan;			//Connected WiFi info
+window.wifi.networks;	    //Array of the visible WiFi networks
 ```
 
 ### Example 2
 ```javascript
-	window.wifi.refresh();
+window.wifi.refresh();
 ```
 
 Changelog
