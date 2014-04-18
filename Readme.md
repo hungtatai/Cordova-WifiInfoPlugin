@@ -1,8 +1,8 @@
-PhoneGap WifiInfoPlugin
+Cordova WifiInfoPlugin
 ==============
 
 * License - The MIT License
-* Test on cordova 3.4.0
+* Test on Cordova 3.4.0
 
 
 Install Step (Cordova CLI)
@@ -15,7 +15,8 @@ API
 -----
 
 ### Example 1
-	window.wifi.info;
+	window.wifi.lan;				//Connected WiFi info
+	window.wifi.networks;		//Array of the visible WiFi networks
 
 ### Example 2
 	window.wifi.refresh();
@@ -23,10 +24,13 @@ API
 
 Changelog
 -----
+* 2014/4/17 
+  * Change wifi object structure
+  * Fix SSID string format
 * 2014/4/3 
   * Add compatibility with Cordova 3.4.0
   * Change output structure
   * Add plugman compatibility
 * 2013/4/5 
-  * adjust output format
-  * add **available network**
+  * Adjust output format
+  * Add **available network**
