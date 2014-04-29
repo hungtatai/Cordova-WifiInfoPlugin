@@ -9,7 +9,7 @@ Install Step (Cordova CLI)
 --------------------------
 
 ### 
-	cordova plugin add https://github.com/ManRueda/org.apache.cordova.wifiinfo
+	cordova plugin add https://github.com/blakebyrnes/org.apache.cordova.wifiinfo
 
 API
 -----
