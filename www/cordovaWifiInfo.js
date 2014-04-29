@@ -23,24 +23,12 @@ WifiInfo.prototype._check = function (success, fail) {
 
 var me = new WifiInfo();
 
-channel.createSticky('onCordovaConnectionReady');
-channel.waitForInitialization('onCordovaConnectionReady');
-
 channel.onCordovaReady.subscribe(function () {
   me._check(function (info) {
-	  me.lan = info.lan;
-	  me.networks = info.networks;
-      // should only fire this once
-      if (channel.onCordovaConnectionReady.state !== 2) {
-        channel.onCordovaConnectionReady.fire();
-      }
+  	me.lan = info.lan;
+	me.networks = info.networks;
     },
     function (e) {
-      // If we can't get the network info we should still tell Cordova
-      // to fire the deviceready event.
-      if (channel.onCordovaConnectionReady.state !== 2) {
-        channel.onCordovaConnectionReady.fire();
-      }
       throw ("Error initializing Network Wifi Information: " + e);
     });
 });
