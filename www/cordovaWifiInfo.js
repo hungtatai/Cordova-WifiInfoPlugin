@@ -31,6 +31,10 @@ channel.onCordovaReady.subscribe(function () {
     function (e) {
       throw ("Error initializing Network Wifi Information: " + e);
     });
+    
+    //listen for events on network
+    document.addEventListener("online", me.refresh());
+    document.addEventListener("offline", me.refresh());
 });
 
 
