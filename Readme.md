@@ -22,7 +22,8 @@ window.wifi.networks;	    //Array of the visible WiFi networks
 
 ### Example 2
 ```javascript
-window.wifi.refresh();
+window.wifi.refresh(); //takes an optional callback.  
+//NOTE: If you need to react to changes in SSID/IP, you need to send in a callback
 ```
 
 Changelog
