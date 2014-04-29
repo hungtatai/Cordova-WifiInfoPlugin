@@ -27,6 +27,8 @@ window.wifi.refresh();
 
 Changelog
 -----
+* 2014/4/29
+  * Listening for cordova connect was causing conflicts with NetworkConnection plugin.  Removed and simply call wifi.refresh() when network connection state changes in the network connect plugin.
 * 2014/4/17 
   * Change wifi object structure
   * Fix SSID string format
