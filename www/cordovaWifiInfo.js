@@ -33,8 +33,8 @@ channel.onCordovaReady.subscribe(function () {
     });
     
     //listen for events on network
-    document.addEventListener("online", me.refresh());
-    document.addEventListener("offline", me.refresh());
+    document.addEventListener("online", me.refresh, false);
+    document.addEventListener("offline", me.refresh, false);
 });
 
 
