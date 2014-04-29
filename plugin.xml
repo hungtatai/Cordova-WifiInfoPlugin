@@ -9,7 +9,9 @@ xmlns:android="http://schemas.android.com/apk/res/android"
     <description>Cordova Wifi Network Information Plugin</description>
     <license>MIT</license>
     <keywords>cordova,network,information,wifi,manrueda</keywords>
-    <repo>https://github.com/ManRueda/org.apache.cordova.wifiinfo</repo>
+    <repo>https://github.com/blakebyrnes/org.apache.cordova.wifiinfo</repo>
+ 
+    <dependency id="org.apache.cordova.network-information" url="https://git-wip-us.apache.org/repos/asf/cordova-plugin-network-information.git" />
 
     <js-module src="www/cordovaWifiInfo.js" name="wifi">
         <clobbers target="wifi" />
