@@ -9,7 +9,7 @@ Install Step (Cordova CLI)
 --------------------------
 
 ### 
-	cordova plugin add https://github.com/ManRueda/org.apache.cordova.wifiinfo
+	cordova plugin add https://github.com/HondaDai/PhoneGap-WifiInfoPlugin
 
 API
 -----
@@ -24,6 +24,13 @@ window.wifi.networks;	    //Array of the visible WiFi networks
 ```javascript
 window.wifi.refresh();
 ```
+
+Special Thanks
+-----
+
+* [ManRueda](https://github.com/ManRueda/org.apache.cordova.wifiinfo)
+
+
 
 Changelog
 -----
