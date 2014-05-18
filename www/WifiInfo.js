@@ -1,45 +1,59 @@
 var exec = require('cordova/exec');
-	
+
 var callbacks = {},
-	num = 0;
-	
-var applyCallback = function() {
+	num = 0, seed = 0;
+
+var applySuccess = function() {
 	for (var cb in callbacks) {
-		if(callbacks.hasOwnProperty(cb) && typeof callbacks[cb] === 'function') {
-			callbacks[cb].apply(this, arguments);
+		if(callbacks.hasOwnProperty(cb)) {
+			callbacks[cb].success.apply(this, arguments);
 		}
 	}
 }
-	
-var wifi = {
-	getWifiInfo: function(callback) {
-		exec(function(data) {
-			if(callback != null) callback(data);
-		}, function(error) {
-			if(callback != null) callback({ error: "Internal Error" });
-		}, 'WifiInfo', 'getWifiInfo', []);
-	},
-	
-	watchWifiInfo: function(callback) {
-		if(num === 0) {
-			exec(function(data) {
-				applyCallback(data);
-			}, function(error) {
-				applyCallback({ error: "Internal Error" });
-			}, 'WifiInfo', 'watchWifiInfo', []);
+
+var applyError = function() {
+	for (var cb in callbacks) {
+		if(callbacks.hasOwnProperty(cb) && typeof callbacks[cb].error === 'function') {
+			callbacks[cb].error.apply(this, arguments);
 		}
-	
-		++num;
-		var id = "cb_" + num;
-		callbacks[id] = callback;
-		return id;
+	}
+}
+
+var wifi = {
+	getWifiInfo: function(success, error, options) {
+		if (typeof success === 'function') {
+			error = (typeof error === 'function') ? error : function(){};
+			exec(success, error, 'WifiInfo', 'getWifiInfo', [options]);
+		}
 	},
-	
+
+	watchWifiInfo: function(success, error, options) {
+		if (typeof success === 'function') {
+			error = (typeof error === 'function') ? error : null;
+
+			if(num === 0) {
+				exec(applySuccess, applyError, 'WifiInfo', 'watchWifiInfo', [options]);
+			}
+
+			++num;
+			++seed;
+
+			var id = "cb_" + seed;
+			callbacks[id] = {
+				success: success,
+				error: error
+			}
+
+			return seed;
+		}
+	},
+
 	clearWatch: function(id) {
+		id = "cb_" + id;
 		if(callbacks[id] != null) {
-			--num;
 			delete callbacks[id];
-			
+
+			--num;
 			if(num === 0) {
 				exec(function(){}, function(){}, 'WifiInfo', 'clearWatch', []);
 			}
