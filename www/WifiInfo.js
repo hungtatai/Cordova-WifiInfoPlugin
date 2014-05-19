@@ -9,7 +9,7 @@ var applySuccess = function() {
 			callbacks[cb].success.apply(this, arguments);
 		}
 	}
-}
+};
 
 var applyError = function() {
 	for (var cb in callbacks) {
@@ -17,7 +17,7 @@ var applyError = function() {
 			callbacks[cb].error.apply(this, arguments);
 		}
 	}
-}
+};
 
 var wifi = {
 	getWifiInfo: function(success, error, options) {
@@ -42,7 +42,7 @@ var wifi = {
 			callbacks[id] = {
 				success: success,
 				error: error
-			}
+			};
 
 			return seed;
 		}
@@ -59,6 +59,6 @@ var wifi = {
 			}
 		}
 	}
-}
+};
 
 module.exports = wifi;
